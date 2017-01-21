@@ -13,7 +13,11 @@ public class MovimientoCamara : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        Vector3 deltaVelocidad = Time.deltaTime * velocidad;
-        transform.Translate(deltaVelocidad);
+        
+        if (transform.position.x < 6)
+        {
+            Vector3 deltaVelocidad = Time.deltaTime * velocidad;
+            transform.Translate(deltaVelocidad);
+        }
     }
 }
