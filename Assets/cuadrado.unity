@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: {x: 1, y: 0, z: 0}
+  limite: 2
+  valorAbsoluto: 0
 --- !u!23 &1234148937
 MeshRenderer:
   m_ObjectHideFlags: 0
