@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovimientoCamara : MonoBehaviour {
-    public Vector3 vector3;
+    public Vector3 velocidad;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +13,7 @@ public class MovimientoCamara : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        Vector3 vector4 = Time.deltaTime * vector3;
-        transform.Translate(vector4);
+        Vector3 deltaVelocidad = Time.deltaTime * velocidad;
+        transform.Translate(deltaVelocidad);
     }
 }
