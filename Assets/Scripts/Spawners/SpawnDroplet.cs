@@ -8,24 +8,23 @@ public class SpawnDroplet : MonoBehaviour {
     PoolObject[] pool;
     List<PoolObject> active;
     Queue<PoolObject> inactive;
+    public Beat ActiveBeat {
+        get {
+            PoolObject activeObject = active[0];
+            if(activeObject!= null) {
+                return null;
+            }
+            return active[0].beat;
+        }
+    }
+    [HideInInspector]
+    public static SpawnDroplet instance;
 
     void Awake() {
         pool = FindObjectsOfType<PoolObject>();
-        int[] arr = new int[3];
-        arr[0] = 1;
-        arr[1] = 3;
-        arr[2] = 10;
-
-        for(int i = 0; i < arr.Length; i++) {
-            arr[0] = i;
-        }
-    }
-
-	// Use this for initialization
-	void Start () {
         inactive = new Queue<PoolObject>(pool);
         active = new List<PoolObject>(pool.Length);
-	}
+    }
 	
 	public PoolObject SpawnObject() {
         if(inactive.Count <= 0) {

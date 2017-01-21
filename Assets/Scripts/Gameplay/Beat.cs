@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Beat : MonoBehaviour {
+public class Beat : MonoBehaviour, ISpawnable {
     [HideInInspector]
     public InputPrecision precision;
     BeatManager manager;
     [HideInInspector]
     public PoolObject poolObject;
-    bool hit = false;
-
+    Rigidbody2D rb;
     void Start() {
         manager = BeatManager.instance;
         poolObject = GetComponent<PoolObject>();
+        poolObject.listener = this;
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
     }
 
     public void Begin() {
@@ -20,7 +23,6 @@ public class Beat : MonoBehaviour {
     }
 
     private IEnumerator StartCycle() {
-        hit = false;
         yield return new WaitForSeconds(manager.badRange);
         precision = InputPrecision.BAD;
         yield return new WaitForSeconds(manager.goodRange);
@@ -31,14 +33,19 @@ public class Beat : MonoBehaviour {
         precision = InputPrecision.PERFECT;
         yield return new WaitForSeconds(manager.missRange);
         precision = InputPrecision.MISS;
-        if (!hit) {
-            BeatManager.instance.RecycleBeat(this);
-        }
     }
 
     public InputPrecision OnHit() {
-        BeatManager.instance.RecycleBeat(this);
-        hit = true;
+        SpawnDroplet.instance.Deactivate(poolObject);
         return precision;
+    }
+
+    public void Spawn() {
+        rb.gravityScale = 1;
+    }
+
+    public void Desapawn() {
+        rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
     }
 }

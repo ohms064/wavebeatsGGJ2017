@@ -7,18 +7,20 @@ public class InputManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-#if UNITY_ANDROID
-        if(Input.touchCount > 0) {
-
+	public void OnTouchDown () {
+        print("Touch!");
+        Beat activeBeat = SpawnDroplet.instance.ActiveBeat;
+        if(activeBeat == null) {
+            return;
         }
-#else
-
-#endif
+        SpawnDroplet.instance.Deactivate(activeBeat.poolObject);
+        InputPrecision precision = activeBeat.precision;
+        string status = precision.ToString();
+        int value = (int)precision;
+        print(string.Format("Status: {0} Value: {1}", status, value));
     }
 
 }

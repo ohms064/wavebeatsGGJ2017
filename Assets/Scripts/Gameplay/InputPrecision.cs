@@ -4,6 +4,6 @@ using UnityEngine;
 
 public enum InputPrecision {
 
-    MISS, BAD, GOOD, GREAT, PERFECT
+    MISS = 0, BAD=1, GOOD=2, GREAT=4, PERFECT=8
 
 }
