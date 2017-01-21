@@ -836,7 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bufferSize: 1024
-  gThresh: 0.1
+  gThresh: 0.2
 --- !u!82 &1235224702
 AudioSource:
   m_ObjectHideFlags: 0

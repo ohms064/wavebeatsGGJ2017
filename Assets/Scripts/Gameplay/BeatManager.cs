@@ -11,14 +11,17 @@ public class BeatManager : MonoBehaviour, AudioProcessor.AudioCallbacks {
 
     //68 beats
     public void onOnbeatDetected() {
-        spawner.SpawnObject();
+        PoolObject beat = spawner.SpawnObject();
+        if(beat != null) {
+            beat.gameObject.GetComponent<Beat>().Begin();
+        }
     }
 
     public void onSpectrum(float[] spectrum) {
     }
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         AudioProcessor processor = FindObjectOfType<AudioProcessor>();
         processor.addAudioCallback(this);
         spawner = FindObjectOfType<SpawnDroplet>();
@@ -26,6 +29,6 @@ public class BeatManager : MonoBehaviour, AudioProcessor.AudioCallbacks {
     }
 	
     public void RecycleBeat(Beat beat) {
-        spawner.Deactivate(beat.poolObject.index);
+        spawner.Deactivate(beat.poolObject);
     }
 }

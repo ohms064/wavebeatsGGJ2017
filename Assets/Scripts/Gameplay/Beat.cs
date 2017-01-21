@@ -15,6 +15,10 @@ public class Beat : MonoBehaviour {
         poolObject = GetComponent<PoolObject>();
     }
 
+    public void Begin() {
+        StartCoroutine("StartCycle");
+    }
+
     private IEnumerator StartCycle() {
         hit = false;
         yield return new WaitForSeconds(manager.badRange);
