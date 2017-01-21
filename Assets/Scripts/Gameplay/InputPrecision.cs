@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arma  {
-    public float danio;
-    public string nombre;
+public enum InputPrecision {
+
+    MISS, BAD, GOOD, GREAT, PERFECT
+
 }
