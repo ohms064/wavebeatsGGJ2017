@@ -12,6 +12,8 @@ public class MovimientoCamara : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(vector3);
-	}
+        
+        Vector3 vector4 = Time.deltaTime * vector3;
+        transform.Translate(vector4);
+    }
 }
