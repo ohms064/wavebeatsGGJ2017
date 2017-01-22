@@ -27,12 +27,8 @@ public class Beat : MonoBehaviour, ISpawnable {
     }
 
     private IEnumerator StartCycle() {
-        yield return new WaitForSeconds(manager.badRange);
-        precision = InputPrecision.BAD;
-        yield return new WaitForSeconds(manager.goodRange);
-        precision = InputPrecision.GOOD;
-        yield return new WaitForSeconds(manager.greatRange);
-        precision = InputPrecision.GREAT;
+        yield return new WaitForSeconds(manager.niceRange);
+        precision = InputPrecision.NICE;
         yield return new WaitForSeconds(manager.perfectRange);
         precision = InputPrecision.PERFECT;
         yield return new WaitForSeconds(manager.missRange);
