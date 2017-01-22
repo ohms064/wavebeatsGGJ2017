@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 
 public class BeatManager : MonoBehaviour, AudioProcessor.AudioCallbacks {
-    [Range(0f, 1f)]
+    [Range(0f, 0.2f)]
     public float badRange, goodRange, greatRange, perfectRange, missRange;
     public static BeatManager instance;
     private BeatDataList data;
