@@ -16,6 +16,7 @@ public class LoadSceneManager : MonoBehaviour {
     public void LoadNextScene() {
         SceneManager.LoadScene((int)nextScene);
         currentScene = nextScene;
+        Time.timeScale = 1;
     }
 
     public void ReloadScene() {
