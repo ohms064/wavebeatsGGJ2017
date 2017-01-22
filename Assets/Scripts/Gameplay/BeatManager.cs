@@ -11,6 +11,7 @@ public class BeatManager : MonoBehaviour, AudioProcessor.AudioCallbacks {
     private BeatDataList data;
     private float currentTime;
     int id = 1;
+    public int interval = 2;
 
     public string jsonFileName;
 
@@ -39,11 +40,12 @@ public class BeatManager : MonoBehaviour, AudioProcessor.AudioCallbacks {
 
     //68 beats
     public void onOnbeatDetected() {
-        PoolObject beat = SpawnDroplet.instance.SpawnObject();
-        if (beat != null) {
-            beat.gameObject.GetComponent<Beat>().Begin();
+        if (id % interval == 0) {
+            PoolObject beat = SpawnDroplet.instance.SpawnObject();
+            if (beat != null) {
+                beat.gameObject.GetComponent<Beat>().Begin();
+            }
         }
-
         data.list.Add(new BeatData(currentTime, id));
         id++;
     }

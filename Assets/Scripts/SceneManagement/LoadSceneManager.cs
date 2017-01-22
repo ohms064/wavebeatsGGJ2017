@@ -19,4 +19,8 @@ public class LoadSceneManager : MonoBehaviour {
     public void ReloadScene() {
         SceneManager.LoadScene((int)currentScene);
     }
+
+    public void Close() {
+        Application.Quit();
+    }
 }

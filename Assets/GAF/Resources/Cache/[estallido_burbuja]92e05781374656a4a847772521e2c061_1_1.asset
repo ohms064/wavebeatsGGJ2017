@@ -17,5 +17,5 @@ MonoBehaviour:
   m_CurrentDataPath: Assets/
   m_Data:
   - m_SearchName: estallido_burbuja
-    m_SharedTexture: {fileID: 0}
-    m_SharedMaterial: {fileID: 0}
+    m_SharedTexture: {fileID: 2800000, guid: 572e2353ad941f54bb913652d28f88d2, type: 3}
+    m_SharedMaterial: {fileID: 2100000, guid: fb5b5295e1fe1784d896577dc020079c, type: 2}

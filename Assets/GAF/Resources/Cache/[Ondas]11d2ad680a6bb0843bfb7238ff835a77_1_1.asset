@@ -17,5 +17,5 @@ MonoBehaviour:
   m_CurrentDataPath: Assets/
   m_Data:
   - m_SearchName: Ondas
-    m_SharedTexture: {fileID: 0}
-    m_SharedMaterial: {fileID: 0}
+    m_SharedTexture: {fileID: 2800000, guid: 13896d6783c201e4aa27f052ade12f6c, type: 3}
+    m_SharedMaterial: {fileID: 2100000, guid: 0110611f2aea5bb4cbaea13484ee090b, type: 2}

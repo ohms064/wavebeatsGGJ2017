@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
+    HitTrigger hit;
+    int i = 0;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
+    void Start() {
+        hit = FindObjectOfType<HitTrigger>();
+    }
+    
 	// Update is called once per frame
 	public void OnTouchDown () {
+        i++;
         print("Touch!");
-        Beat activeBeat = SpawnDroplet.instance.ActiveBeat;
+        Beat activeBeat = hit.currentBeat;
         if(activeBeat == null) {
+            print("Null!");
             return;
         }
         SpawnDroplet.instance.Deactivate(activeBeat.poolObject);
         InputPrecision precision = activeBeat.precision;
         string status = precision.ToString();
         int value = (int)precision;
-        print(string.Format("Status: {0} Value: {1}", status, value));
+        print(string.Format("Status: {0} Value: {1} Hits: {2}", status, value, i));
     }
 
 }

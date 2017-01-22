@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class BeatData :ScriptableObject {
+public class BeatData {
     public float time;
     public int id;
 

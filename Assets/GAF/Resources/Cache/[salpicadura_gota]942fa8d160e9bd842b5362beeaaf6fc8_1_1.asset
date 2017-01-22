@@ -17,5 +17,5 @@ MonoBehaviour:
   m_CurrentDataPath: Assets/
   m_Data:
   - m_SearchName: salpicadura_gota
-    m_SharedTexture: {fileID: 0}
-    m_SharedMaterial: {fileID: 0}
+    m_SharedTexture: {fileID: 2800000, guid: b6cd7c1f4fcd5a54eafd2626c127a59f, type: 3}
+    m_SharedMaterial: {fileID: 2100000, guid: 8df050c8d181aed449bd4a263174831e, type: 2}
