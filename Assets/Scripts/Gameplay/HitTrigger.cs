@@ -22,7 +22,7 @@ public class HitTrigger : MonoBehaviour {
         if (col.tag != "Droplet") return;
         Beat beat = col.GetComponent<Beat>();
         beat.Stop();
-        if (queue.Contains(beat)) {
+        if (queue.Peek().Equals(beat)) {
             queue.Dequeue().controller.SetTrigger(AnimationController.ANIM_MISS);
             ScoreManager.instance.SetMiss();
         }
