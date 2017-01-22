@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour {
 	public void OnTouchDown () {
         i++;
         print("Touch!");
-        Beat activeBeat = hit.currentBeat;
+        Beat activeBeat = hit.queue.Dequeue();
         if(activeBeat == null) {
             print("Null!");
             return;

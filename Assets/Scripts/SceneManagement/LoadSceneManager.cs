@@ -13,8 +13,18 @@ public class LoadSceneManager : MonoBehaviour {
 
     public Scenes nextScene;
 
+    void Start() {
+        instance = this;
+    }
+
     public void LoadNextScene() {
         SceneManager.LoadScene((int)nextScene);
+        currentScene = nextScene;
+        Time.timeScale = 1;
+    }
+
+    public void LoadNextScene(Scenes newScene) {
+        SceneManager.LoadScene((int)newScene);
         currentScene = nextScene;
         Time.timeScale = 1;
     }

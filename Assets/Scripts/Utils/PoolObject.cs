@@ -8,14 +8,16 @@ public class PoolObject : MonoBehaviour {
     [HideInInspector]
     public int index;
     public ISpawnable listener;
+    private Vector3 originalPlace;
     public Beat beat; //Esto talvez sea mejor que PoolObject sea una interfaz IPoolable y que Beat implemente esta interfaz coomo está definida esta clase.
 
     void Awake() {
         beat = GetComponent<Beat>();
+        originalPlace = transform.position;
     }
 
     public void HideObject() {
-        transform.position = new Vector3(-10, 0, 0);
+        transform.position = originalPlace;
         this.enabled = false;
         isInPlay = false;
         listener.Desapawn();
