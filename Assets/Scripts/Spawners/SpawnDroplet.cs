@@ -42,7 +42,7 @@ public class SpawnDroplet : MonoBehaviour {
 
     public void Deactivate(PoolObject toDeactivate) {
         active.Remove(toDeactivate);
-        toDeactivate.HideObject();
+        //toDeactivate.HideObject();
         toDeactivate.index = -1;
         inactive.Enqueue(toDeactivate);
     }

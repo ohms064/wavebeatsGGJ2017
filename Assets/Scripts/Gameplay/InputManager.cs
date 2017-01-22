@@ -20,7 +20,8 @@ public class InputManager : MonoBehaviour {
             print("Null!");
             return;
         }
-        SpawnDroplet.instance.Deactivate(activeBeat.poolObject);
+        activeBeat.controller.SetTrigger(AnimationController.ANIM_HIT);
+        activeBeat.Stop();
         InputPrecision precision = activeBeat.precision;
         string status = precision.ToString();
         int value = (int)precision;

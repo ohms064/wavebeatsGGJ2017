@@ -10,15 +10,19 @@ public class Beat : MonoBehaviour, ISpawnable {
     [HideInInspector]
     public PoolObject poolObject;
     Rigidbody2D rb;
+    [HideInInspector]
+    public AnimationController controller;
     void Start() {
         manager = BeatManager.instance;
         poolObject = GetComponent<PoolObject>();
         poolObject.listener = this;
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        controller = GetComponent<AnimationController>();
     }
 
     public void Begin() {
+        controller.SetTrigger(AnimationController.ANIM_BEGIN);
         StartCoroutine("StartCycle");
     }
 
@@ -44,8 +48,12 @@ public class Beat : MonoBehaviour, ISpawnable {
         rb.gravityScale = 1;
     }
 
-    public void Desapawn() {
+    public void Stop() {
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero;
+    }
+
+    public void Desapawn() {
+        SpawnDroplet.instance.Deactivate(poolObject);
     }
 }
