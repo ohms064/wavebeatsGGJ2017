@@ -12,13 +12,19 @@ public class HitTrigger : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
         if (col.tag != "Droplet") return;
-        queue.Enqueue( col.GetComponent<Beat>());
-        queue.Peek().Begin();
+        Beat beat = col.GetComponent<Beat>();
+        beat.Begin();
+        queue.Enqueue( beat );
+        
     }
 
     void OnTriggerExit2D(Collider2D col) {
         if (col.tag != "Droplet") return;
-        col.GetComponent<Beat>().Stop();
-        queue.Dequeue().controller.SetTrigger(AnimationController.ANIM_MISS);
+        Beat beat = col.GetComponent<Beat>();
+        beat.Stop();
+        if (queue.Contains(beat)) {
+            queue.Dequeue().controller.SetTrigger(AnimationController.ANIM_MISS);
+            ScoreManager.instance.SetMiss();
+        }
     }
 }
